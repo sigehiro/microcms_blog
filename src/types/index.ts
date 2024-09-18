@@ -27,3 +27,21 @@ export interface BlogType {
     publishedAt: string
     updatedAt: string
 }
+
+export interface ArchiveMonthType {
+    year: number
+    month: number
+    count: number
+}
+
+export interface CategoryCountType {
+    id: string
+    name: string
+    count: number
+}
+
+export interface SidebarData {
+    latestBlogs: BlogType[]
+    archiveMonths: ArchiveMonthType[]
+    categoryCounts: CategoryCountType[]
+}

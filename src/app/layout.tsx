@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 // import localFont from 'next/font/local'
 import './globals.css'
 import { M_PLUS_1 } from 'next/font/google'
+import QueryProvider from '@/components/providers/QueryProvider'
 
 const mPlus1 = M_PLUS_1({
     weight: ['400', '700', '900'],
@@ -28,7 +29,9 @@ interface RootLayoutProps {
 const RootLayout = async ({ children }: RootLayoutProps) => {
     return (
         <html lang="ja">
-            <body className={mPlus1.className}>{children}</body>
+            <body className={mPlus1.className}>
+                <QueryProvider>{children}</QueryProvider>
+            </body>
         </html>
     )
 }
