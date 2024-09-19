@@ -31,7 +31,7 @@ const Navigation = () => {
         <header>
             <div className="mx-auto max-w-screen-lg px-2 py-8">
                 <Link href="/" className="font-bold text-xl">
-                    フルスタックチャンネル
+                    ぷ ろ せ す Canada
                 </Link>
             </div>
 
