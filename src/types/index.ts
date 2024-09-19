@@ -23,6 +23,9 @@ export interface BlogType {
     ranking?: number
     isRecommended: boolean
     isSpecial: boolean
+    isTech: boolean
+    isDesign: boolean
+    isDailylog: boolean
     createdAt: string
     publishedAt: string
     updatedAt: string

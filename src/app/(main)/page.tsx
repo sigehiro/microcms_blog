@@ -11,7 +11,7 @@ export const revalidate = 0
 // メインページ
 const HomePage = async () => {
     // 非同期で複数のデータを同時に取得
-    const [latestBlogs, recommendedBlogs, specialBlogs] = await Promise.all([
+    const [latestBlogs, recommendedBlogs, specialBlogs, techBlogs, designBlogs, dailyLogs] = await Promise.all([
         // 最新のブログ記事を取得
         microcms.getList<BlogType>({
             endpoint: 'blog',
@@ -36,6 +36,29 @@ const HomePage = async () => {
                 filters: 'isSpecial[equals]true',
             },
         }),
+        // テクノロジー関連の記事を取得
+        microcms.getList<BlogType>({
+            endpoint: 'blog',
+            queries: {
+                filters: 'isTech[equals]true',
+            },
+        }),
+
+        // デザイン関連の記事を取得
+        microcms.getList<BlogType>({
+            endpoint: 'blog',
+            queries: {
+                filters: 'isDesign[equals]true',
+            },
+        }),
+
+        // デイリーログを取得
+        microcms.getList<BlogType>({
+            endpoint: 'blog',
+            queries: {
+                filters: 'isDailylog[equals]true',
+            },
+        }),
     ])
 
     return (
@@ -48,6 +71,9 @@ const HomePage = async () => {
                         latestBlogs={latestBlogs.contents}
                         recommendedBlogs={recommendedBlogs.contents}
                         specialBlogs={specialBlogs.contents}
+                        techBlogs={techBlogs.contents} // 追加
+                        designBlogs={designBlogs.contents} // 追加
+                        dailylogs={dailyLogs.contents} // 追加
                     />
                 </LayoutWithSidebar>
             </div>
