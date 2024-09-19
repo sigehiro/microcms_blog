@@ -81,7 +81,7 @@ const Sidebar = () => {
                 <div className="font-bold text-xl">SG</div>
 
                 <div className="text-sm">
-                    Canadaでエンジニアを目指しています！
+                    CanadaでComputer Programmingを学ぶ学生です！
                     <br />
                     カナダ生活や技術ブログなどを発信しています。
                 </div>

@@ -9,10 +9,13 @@ interface TopListProps {
     latestBlogs: BlogType[]
     recommendedBlogs: BlogType[]
     specialBlogs: BlogType[]
+    techBlogs: BlogType[]
+    designBlogs: BlogType[]
+    dailylogs: BlogType[]
 }
 
 // トップページの記事一覧
-const TopList = ({ latestBlogs, recommendedBlogs, specialBlogs }: TopListProps) => {
+const TopList = ({ latestBlogs, recommendedBlogs, specialBlogs, techBlogs, designBlogs, dailylogs }: TopListProps) => {
     const [filter, setFilter] = useState('新着')
 
     // 選択したフィルターに基づいて表示する記事を決定
@@ -22,6 +25,12 @@ const TopList = ({ latestBlogs, recommendedBlogs, specialBlogs }: TopListProps) 
                 return latestBlogs
             case 'オススメ':
                 return recommendedBlogs
+            case '技術':
+                return techBlogs
+            case 'デザイン':
+                return designBlogs
+            case '留学生活':
+                return dailylogs
             case '特集':
                 return specialBlogs
             default:
@@ -52,12 +61,39 @@ const TopList = ({ latestBlogs, recommendedBlogs, specialBlogs }: TopListProps) 
                 </button>
                 <button
                     className={cn(
+                        'border-r py-3 text-center w-full hover:bg-black hover:text-white',
+                        filter === '技術' && 'bg-black text-white'
+                    )}
+                    onClick={() => setFilter('技術')}
+                >
+                    技術
+                </button>
+                <button
+                    className={cn(
+                        'border-r py-3 text-center w-full hover:bg-black hover:text-white',
+                        filter === 'デザイン' && 'bg-black text-white'
+                    )}
+                    onClick={() => setFilter('デザイン')}
+                >
+                    デザイン
+                </button>
+                <button
+                    className={cn(
+                        'border-r py-3 text-center w-full hover:bg-black hover:text-white',
+                        filter === '留学生活' && 'bg-black text-white'
+                    )}
+                    onClick={() => setFilter('留学生活')}
+                >
+                    留学生活
+                </button>
+                <button
+                    className={cn(
                         'py-3 text-center w-full hover:bg-black hover:text-white',
                         filter === '特集' && 'bg-black text-white'
                     )}
                     onClick={() => setFilter('特集')}
                 >
-                    特集記事
+                    特集
                 </button>
             </div>
 
