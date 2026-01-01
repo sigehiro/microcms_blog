@@ -5,35 +5,38 @@ import { M_PLUS_1 } from 'next/font/google'
 import QueryProvider from '@/components/providers/QueryProvider'
 
 const mPlus1 = M_PLUS_1({
-    weight: ['400', '700', '900'],
-    subsets: ['latin'],
+  weight: ['400', '700', '900'],
+  subsets: ['latin'],
 })
 
 export const metadata: Metadata = {
-    title: {
-        template: 'ブログシステム',
-        default: 'ブログシステム',
-    },
+  title: {
+    template: 'ブログシステム',
+    default: 'ブログシステム',
+  },
+  icons: {
+    icon: '/icon.png',
+  },
 }
 
 export const viewport: Viewport = {
-    maximumScale: 1,
-    userScalable: false,
+  maximumScale: 1,
+  userScalable: false,
 }
 
 interface RootLayoutProps {
-    children: React.ReactNode
+  children: React.ReactNode
 }
 
 // ルートレイアウト
 const RootLayout = async ({ children }: RootLayoutProps) => {
-    return (
-        <html lang="ja">
-            <body className={mPlus1.className}>
-                <QueryProvider>{children}</QueryProvider>
-            </body>
-        </html>
-    )
+  return (
+    <html lang="ja">
+      <body className={mPlus1.className}>
+        <QueryProvider>{children}</QueryProvider>
+      </body>
+    </html>
+  )
 }
 
 export default RootLayout
